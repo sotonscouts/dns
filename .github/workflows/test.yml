@@ -1,5 +1,5 @@
 name: Test DNS Zones
-on: [push]
+on: [pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -9,4 +9,20 @@ jobs:
     - name: Test validity of dnsconfig.js
       run: |
         dnscontrol check
- 
+    - name: Preview changes against live DNS
+      id: dnscontrol_preview
+      env:
+        MYTHIC_API_KEY_ID: ${{ secrets.MYTHIC_API_KEY_ID }}
+        MYTHIC_API_KEY_SECRET: ${{ secrets.MYTHIC_API_KEY_SECRET }}
+      run: |
+        dnscontrol preview
+    - name: Preview pull request comment
+      uses: unsplash/comment-on-pr@v1.3.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        msg: |
+            ```
+            ${{ steps.dnscontrol_preview.outputs.preview_comment }}
+            ```
+        check_for_duplicate_msg: true
