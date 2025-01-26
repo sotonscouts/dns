@@ -1,14 +1,6 @@
 function GoogleWorkspaceRecords(site_verification_code) {
-    var GOOGLE_APPS_DOMAIN_MX = [
-        MX("@", 1, "aspmx.l.google.com."),
-        MX("@", 5, "alt1.aspmx.l.google.com."),
-        MX("@", 5, "alt2.aspmx.l.google.com."),
-        MX("@", 10, "alt3.aspmx.l.google.com."),
-        MX("@", 10, "alt4.aspmx.l.google.com."),
-    ]
-
     return [
-        GOOGLE_APPS_DOMAIN_MX,
+        MX("@", 1, "smtp.google.com."),
         TXT("@", "google-site-verification=" + site_verification_code),
 
         // Include SPF here for now, as we don't send emails from anywhere else
