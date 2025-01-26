@@ -1,0 +1,12 @@
+name: Test DNS Zones
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container: stackexchange/dnscontrol
+    steps:
+    - uses: actions/checkout@v2
+    - name: Test validity of dnsconfig.js
+      run: |
+        dnscontrol check
+ 
