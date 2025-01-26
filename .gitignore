@@ -1,0 +1,3 @@
+zones/*.zone
+creds.json
+types-dnscontrol.d.ts
