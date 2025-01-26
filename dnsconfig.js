@@ -41,9 +41,8 @@ D("southamptoncityscouts.co.uk", REG_NONE,
     A("www", AZURE_WEB_HOST),
 
     // Add records for group and old site web redirects
-    A("*", AZURE_WEB_HOST),
-    // SCOUT_GROUP_ORDINALS.map(function a(name) { return A(name, AZURE_WEB_HOST)}),
-    // ADDITIONAL_SUBDOMAIN_SITES.map(function a(name) { return A(name, AZURE_WEB_HOST)}),
+    SCOUT_GROUP_ORDINALS.map(function a(name) { return A(name, AZURE_WEB_HOST)}),
+    ADDITIONAL_SUBDOMAIN_SITES.map(function a(name) { return A(name, AZURE_WEB_HOST)}),
 
     // Google Workspace
     GoogleWorkspaceRecordsWithServices("8BcNZ26MXsKzFRg3O8rXUG4bpeeFxxEPb4o7PVaV174"),
