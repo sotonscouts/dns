@@ -13,7 +13,7 @@ jobs:
       id: dnscontrol_preview
       env:
         MYTHIC_API_KEY_ID: ${{ secrets.MYTHIC_API_KEY_ID }}
-        MYTHIC_API_KEY_SECRET: ${{ secrets.MYTHIC_API_KEY_SECRET }}
+        MYTHIC_API_SECRET: ${{ secrets.MYTHIC_API_SECRET }}
       run: |
         dnscontrol preview
     - name: Preview pull request comment
