@@ -24,12 +24,14 @@ jobs:
 
           delimiter="gha-delim-$RANDOM-$RANDOM-gha-delim"
           {
-            echo "txt<<${delimiter}"
+            echo "preview_comment<<${delimiter}"
             cat ./result.txt
             echo "${delimiter}"
           } >> "$GITHUB_OUTPUT"
 
           cat ./result.txt
+
+          exit $result
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v3
         with:
