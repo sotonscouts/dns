@@ -17,10 +17,19 @@ jobs:
           MYTHIC_API_KEY_ID: ${{ secrets.MYTHIC_API_KEY_ID }}
           MYTHIC_API_SECRET: ${{ secrets.MYTHIC_API_SECRET }}
         run: |
-          OUTPUT=$(dnscontrol preview)
-          EXIT_CODE=$?
-          echo "preview_comment=$OUTPUT" >> $GITHUB_ENV
-          exit $EXIT_CODE
+          set +e
+          dnscontrol preview > ./result.txt
+          result=$?
+          set -euo pipefail
+
+          delimiter="gha-delim-$RANDOM-$RANDOM-gha-delim"
+          {
+            echo "txt<<${delimiter}"
+            cat ./result.txt
+            echo "${delimiter}"
+          } >> "$GITHUB_OUTPUT"
+
+          cat ./result.txt
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v3
         with:
