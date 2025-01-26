@@ -1,0 +1,21 @@
+name: deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    container: stackexchange/dnscontrol
+    steps:
+        - uses: actions/checkout@v2
+        - name: Test validity of dnsconfig.js
+          run: |
+            dnscontrol check
+        - name: Push changes to live DNS
+          id: dnscontrol_preview
+          env:
+            MYTHIC_API_KEY_ID: ${{ secrets.MYTHIC_API_KEY_ID }}
+            MYTHIC_API_SECRET: ${{ secrets.MYTHIC_API_SECRET }}
+          run: |
+            dnscontrol push
