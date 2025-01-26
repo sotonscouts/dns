@@ -1,12 +1,41 @@
 name: Test DNS Zones
-on: [push]
+on: [pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
     container: stackexchange/dnscontrol
+    permissions:
+      pull-requests: write
     steps:
-    - uses: actions/checkout@v2
-    - name: Test validity of dnsconfig.js
-      run: |
-        dnscontrol check
- 
+      - uses: actions/checkout@v2
+      - name: Test validity of dnsconfig.js
+        run: |
+          dnscontrol check
+      - name: Preview changes against live DNS
+        id: dnscontrol_preview
+        env:
+          MYTHIC_API_KEY_ID: ${{ secrets.MYTHIC_API_KEY_ID }}
+          MYTHIC_API_SECRET: ${{ secrets.MYTHIC_API_SECRET }}
+        run: |
+          set +e
+          dnscontrol preview > ./result.txt
+          result=$?
+          set -euo pipefail
+
+          delimiter="gha-delim-$RANDOM-$RANDOM-gha-delim"
+          {
+            echo "preview_comment<<${delimiter}"
+            cat ./result.txt
+            echo "${delimiter}"
+          } >> "$GITHUB_OUTPUT"
+
+          cat ./result.txt
+
+          exit $result
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          message: |
+            ```
+            ${{ steps.dnscontrol_preview.outputs.preview_comment }}
+            ```

@@ -1,0 +1,8 @@
+{
+    "mythic": {
+        "TYPE": "MYTHICBEASTS",
+        "keyID": "$MYTHIC_API_KEY_ID",
+        "secret": "$MYTHIC_API_SECRET"
+    }
+}
+  
