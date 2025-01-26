@@ -17,8 +17,8 @@ jobs:
           MYTHIC_API_KEY_ID: ${{ secrets.MYTHIC_API_KEY_ID }}
           MYTHIC_API_SECRET: ${{ secrets.MYTHIC_API_SECRET }}
         run: |
-          OUTPUT = $(dnscontrol preview)
-          EXIT_CODE = $?
+          OUTPUT=$(dnscontrol preview)
+          EXIT_CODE=$?
           echo "preview_comment=$OUTPUT" >> $GITHUB_ENV
           exit $EXIT_CODE
       - name: Comment PR
