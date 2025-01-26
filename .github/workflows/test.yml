@@ -17,7 +17,10 @@ jobs:
           MYTHIC_API_KEY_ID: ${{ secrets.MYTHIC_API_KEY_ID }}
           MYTHIC_API_SECRET: ${{ secrets.MYTHIC_API_SECRET }}
         run: |
-          dnscontrol preview
+          OUTPUT = $(dnscontrol preview)
+          EXIT_CODE = $?
+          echo "preview_comment=$OUTPUT" >> $GITHUB_ENV
+          exit $EXIT_CODE
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v3
         with:
