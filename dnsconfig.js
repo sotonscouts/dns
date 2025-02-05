@@ -17,7 +17,6 @@ D("southamptoncityscouts.org.uk", REG_NONE,
     CNAME("www", "ghs.googlehosted.com."),
 
     A("archive", AZURE_WEB_HOST),
-    A("helpdesk", "172.187.192.255"),
 
     // Scout group subdomains
     SCOUT_GROUP_ORDINALS.map(function a(name) { return CNAME(name, "ghs.googlehosted.com.")}),
