@@ -22,6 +22,11 @@ D("southamptoncityscouts.org.uk", REG_NONE,
     SCOUT_GROUP_ORDINALS.map(function a(name) { return CNAME(name, "ghs.googlehosted.com.")}),
     // Additional websites
     ADDITIONAL_SUBDOMAIN_SITES.map(function a(name) { return CNAME(name, "ghs.googlehosted.com.")}),
+
+    // Zammad
+    A("zammad", "20.0.104.23"),
+    AAAA("zammad", "2603:1020:702:7::10"),
+    CNAME("helpdesk", "zammad"),
     
     // Google Workspace
     GoogleWorkspaceRecordsWithServices("YvpJ0aG8tp_Y94z29UzwqCL30UXHqx2OyQmOspJ8GgY"),
