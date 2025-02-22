@@ -7,13 +7,19 @@ function GoogleWorkspaceRecords(site_verification_code) {
         MX("@", 10, "alt4.aspmx.l.google.com."),
     ]
 
-    return [
+    var records = [
         GOOGLE_APPS_DOMAIN_MX,
-        TXT("@", "google-site-verification=" + site_verification_code),
-
         // Include SPF here for now, as we don't send emails from anywhere else
         TXT("@", "v=spf1 include:_spf.google.com ~all"),
     ]
+
+    if (site_verification_code) {
+        records.push([
+            TXT("@", "google-site-verification=" + site_verification_code),
+        ]);
+    }
+
+    return records;
 }
 
 function GoogleWorkspaceRecordsWithServices(site_verification_code) {

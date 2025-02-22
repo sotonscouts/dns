@@ -63,3 +63,15 @@ D("25th-southampton.org.uk", REG_NONE,
 
     GoogleWorkspaceRecords("PiUAKlFrHWE-JB4ltgMf7l9oP_Jj36zSXnbaPA2dwII"),
 );
+
+D("highfieldscouts.org.uk", REG_NONE,
+    DnsProvider(DSP_MYTHIC),
+    DefaultTTL(3600),
+
+    // Website is hosted on ScoutSites
+    A("@", "176.58.114.145"),
+    CNAME("www", "highfield.scoutsites.org.uk."),
+
+    // There is no verification code for this domain as it is on a legacy workspace.
+    GoogleWorkspaceRecords(null),
+)
