@@ -6,6 +6,9 @@ var REG_NONE = NewRegistrar("none");
 var SCOUT_GROUP_ORDINALS = [1, 2, 7, 9, 11, 13, 14, 22, 25, 26, 29].map(get_ordinal);
 var ADDITIONAL_SUBDOMAIN_SITES = ["explorers", "network", "wilverley"];
 
+var CT1_LEGACY_IP = "20.26.234.44";
+var CT1_IP6 = "2603:1020:700:1::48";
+
 var AZURE_WEB_HOST = "51.132.241.167";
 
 D("southamptoncityscouts.org.uk", REG_NONE,
@@ -22,6 +25,10 @@ D("southamptoncityscouts.org.uk", REG_NONE,
     SCOUT_GROUP_ORDINALS.map(function a(name) { return CNAME(name, "ghs.googlehosted.com.")}),
     // Additional websites
     ADDITIONAL_SUBDOMAIN_SITES.map(function a(name) { return CNAME(name, "ghs.googlehosted.com.")}),
+
+    // CT1
+    A("ct1", CT1_LEGACY_IP),
+    AAAA("ct1", CT1_IP6),
 
     // Zammad
     A("zammad", "20.0.104.23"),
