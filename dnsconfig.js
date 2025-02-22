@@ -9,17 +9,17 @@ var ADDITIONAL_SUBDOMAIN_SITES = ["explorers", "network", "wilverley"];
 var CT1_LEGACY_IP = "20.26.234.44";
 var CT1_IP6 = "2603:1020:700:1::48";
 
-var AZURE_WEB_HOST = "51.132.241.167";
-
 D("southamptoncityscouts.org.uk", REG_NONE,
     DnsProvider(DSP_MYTHIC),
     DefaultTTL(3600),
 
     // Main website
-    A("@", AZURE_WEB_HOST),  // Redirect is served from Azure
+    A("@", CT1_LEGACY_IP),
+    AAAA("@", CT1_IP6),
     CNAME("www", "ghs.googlehosted.com."),
 
-    A("archive", AZURE_WEB_HOST),
+    A("archive", CT1_LEGACY_IP),
+    AAAA("archive", CT1_IP6),
 
     // Scout group subdomains
     SCOUT_GROUP_ORDINALS.map(function a(name) { return CNAME(name, "ghs.googlehosted.com.")}),
@@ -49,12 +49,14 @@ D("southamptoncityscouts.co.uk", REG_NONE,
     DefaultTTL(3600),
 
     // Redirects to main website
-    A("@", AZURE_WEB_HOST),
-    A("www", AZURE_WEB_HOST),
+    A("@", CT1_LEGACY_IP),
+    AAAA("@", CT1_IP6),
+    A("www", CT1_LEGACY_IP),
+    AAAA("www", CT1_IP6),
 
     // Add records for group and old site web redirects
-    SCOUT_GROUP_ORDINALS.map(function a(name) { return A(name, AZURE_WEB_HOST)}),
-    ADDITIONAL_SUBDOMAIN_SITES.map(function a(name) { return A(name, AZURE_WEB_HOST)}),
+    SCOUT_GROUP_ORDINALS.map(function a(name) { return [A(name, CT1_LEGACY_IP), AAAA(name, CT1_IP6)]}),
+    ADDITIONAL_SUBDOMAIN_SITES.map(function a(name) { return [A(name, CT1_LEGACY_IP), AAAA(name, CT1_IP6)]}),
 
     // Google Workspace
     GoogleWorkspaceRecordsWithServices("8BcNZ26MXsKzFRg3O8rXUG4bpeeFxxEPb4o7PVaV174"),
@@ -65,8 +67,10 @@ D("25th-southampton.org.uk", REG_NONE,
     DefaultTTL(3600),
 
     // Website redirects
-    A("@", AZURE_WEB_HOST),
-    A("www", AZURE_WEB_HOST),
+    A("@", CT1_LEGACY_IP),
+    AAAA("@", CT1_IP6),
+    A("www", CT1_LEGACY_IP),
+    AAAA("www", CT1_IP6),
 
     GoogleWorkspaceRecords("PiUAKlFrHWE-JB4ltgMf7l9oP_Jj36zSXnbaPA2dwII"),
 );
