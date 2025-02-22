@@ -18,8 +18,7 @@ D("southamptoncityscouts.org.uk", REG_NONE,
     AAAA("@", CT1_IP6),
     CNAME("www", "ghs.googlehosted.com."),
 
-    A("archive", CT1_LEGACY_IP),
-    AAAA("archive", CT1_IP6),
+    CNAME("archive", "ct1.southamptoncityscouts.org.uk."),
 
     // Scout group subdomains
     SCOUT_GROUP_ORDINALS.map(function a(name) { return CNAME(name, "ghs.googlehosted.com.")}),
@@ -51,12 +50,11 @@ D("southamptoncityscouts.co.uk", REG_NONE,
     // Redirects to main website
     A("@", CT1_LEGACY_IP),
     AAAA("@", CT1_IP6),
-    A("www", CT1_LEGACY_IP),
-    AAAA("www", CT1_IP6),
+    CNAME("www", "ct1.southamptoncityscouts.org.uk."),
 
     // Add records for group and old site web redirects
-    SCOUT_GROUP_ORDINALS.map(function a(name) { return [A(name, CT1_LEGACY_IP), AAAA(name, CT1_IP6)]}),
-    ADDITIONAL_SUBDOMAIN_SITES.map(function a(name) { return [A(name, CT1_LEGACY_IP), AAAA(name, CT1_IP6)]}),
+    SCOUT_GROUP_ORDINALS.map(function a(name) { return CNAME(name, "ct1.southamptoncityscouts.org.uk.")}),
+    ADDITIONAL_SUBDOMAIN_SITES.map(function a(name) { return CNAME(name, "ct1.southamptoncityscouts.org.uk.")}),
 
     // Google Workspace
     GoogleWorkspaceRecordsWithServices("8BcNZ26MXsKzFRg3O8rXUG4bpeeFxxEPb4o7PVaV174"),
@@ -69,8 +67,7 @@ D("25th-southampton.org.uk", REG_NONE,
     // Website redirects
     A("@", CT1_LEGACY_IP),
     AAAA("@", CT1_IP6),
-    A("www", CT1_LEGACY_IP),
-    AAAA("www", CT1_IP6),
+    CNAME("www", "ct1.southamptoncityscouts.org.uk."),
 
     GoogleWorkspaceRecords("PiUAKlFrHWE-JB4ltgMf7l9oP_Jj36zSXnbaPA2dwII"),
 );
