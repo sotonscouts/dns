@@ -76,9 +76,10 @@ D("highfieldscouts.org.uk", REG_NONE,
     DnsProvider(DSP_MYTHIC),
     DefaultTTL(3600),
 
-    // Website is hosted on ScoutSites
-    A("@", "176.58.114.145"),
-    CNAME("www", "highfield.scoutsites.org.uk."),
+    // Website redirects
+    A("@", CT1_LEGACY_IP),
+    AAAA("@", CT1_IP6),
+    CNAME("www", "ct1.southamptoncityscouts.org.uk."),
 
     // There is no verification code for this domain as it is on a legacy workspace.
     GoogleWorkspaceRecords(null),
