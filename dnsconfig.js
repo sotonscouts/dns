@@ -29,6 +29,9 @@ D("southamptoncityscouts.org.uk", REG_NONE,
     A("ct1", CT1_LEGACY_IP),
     AAAA("ct1", CT1_IP6),
 
+    // Salute
+    CNAME("prodapi.salute", "ct1"),
+
     // Zammad
     A("zammad", "20.0.104.23"),
     AAAA("zammad", "2603:1020:702:7::10"),
