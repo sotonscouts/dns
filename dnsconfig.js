@@ -30,7 +30,7 @@ D("southamptoncityscouts.org.uk", REG_NONE,
     AAAA("ct1", CT1_IP6),
 
     // Salute
-    CNAME("salute", "witty-tree-07d1db303.6.azurestaticapps.net."),
+    CNAME("salute", "kind-ground-0d00af503.6.azurestaticapps.net"),
     CNAME("prodapi.salute", "ct1"),
 
     // Zammad
