@@ -47,7 +47,7 @@ D("southamptoncityscouts.org.uk", REG_NONE,
     TXT("google._domainkey", "v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAndiHMSroeG0unRaetpCq1YlBm61AK0IC07uV1XOdyt2njdqUsCV+9bjn7LjH8KmIeTxcbwlNHgIHOWIuH8MY6s/TcxNnTTjct0LTcwXU/NqFWR1CTMQI2KdBTcUdPy5svueMfMvYH7bcPsokBoAU2i69EbJlJ6f9hWwL+1PjfQbbRvq9PDXDx24AssMAqvc3Omh/NTeYpENXTW0p18FHIRCUMuM1Kdraf77pemP/6qyDxW8wArMi04A0qpxzxkoY2tA+0m0ZHx8zrb1D6DJqh6QJUCLgMslBBmNYNNo5WxtQX9Paydkwxrry0NZFL0l/WXymG08N8e/Q8Px6b7n0bwIDAQAB"),
 
     TXT("_gh-sotonscouts-o", "3da082cda3"),  // GitHub Organisation verification
-    TXT("canva-site-verification", "nfXxT0bv21bYmOI3h66zaw"),  // Canva.com Domain Verification
+    TXT("@", "canva-site-verification=nfXxT0bv21bYmOI3h66zaw"),  // Canva.com Domain Verification
 );
 
 D("southamptoncityscouts.co.uk", REG_NONE,
