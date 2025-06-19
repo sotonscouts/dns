@@ -34,6 +34,9 @@ D("southamptoncityscouts.org.uk", REG_NONE,
     CNAME("prodapi.salute", "ct1"),
     CNAME("staging.salute", "proud-dune-0453ca203.6.azurestaticapps.net."),
     CNAME("stagingapi.salute", "ct1"),
+
+    // Volunteer Hub
+    CNAME("hub", "ct1"),
     
     // Google Workspace
     GoogleWorkspaceRecordsWithServices("YvpJ0aG8tp_Y94z29UzwqCL30UXHqx2OyQmOspJ8GgY"),
