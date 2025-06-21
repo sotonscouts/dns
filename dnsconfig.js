@@ -86,6 +86,5 @@ D("highfieldscouts.org.uk", REG_NONE,
     AAAA("@", CT1_IP6),
     CNAME("www", "ct1.southamptoncityscouts.org.uk."),
 
-    // There is no verification code for this domain as it is on a legacy workspace.
-    GoogleWorkspaceRecords(null),
+    GoogleWorkspaceRecords("lCPO8h-KZRF0k0GHown5PhVDFf_z6MSWIDBVwrtju9c"),
 )
