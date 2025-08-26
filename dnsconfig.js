@@ -70,6 +70,10 @@ D("woodmill.org.uk", REG_NONE,
     DnsProvider(DSP_MYTHIC),
     DefaultTTL(3600),
 
+    A("@", CT1_LEGACY_IP),
+    AAAA("@", CT1_IP6),
+    CNAME("www", "ct1.southamptoncityscouts.org.uk."),
+
     // Google Workspace
     GoogleWorkspaceRecords("rvtFceqW7Xlvkcj9lrc60v5RKQt5ZGT06VLMa73gAm4", "google_apps"),
 );
