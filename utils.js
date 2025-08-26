@@ -1,17 +1,26 @@
-function GoogleWorkspaceRecords(site_verification_code) {
-    var GOOGLE_APPS_DOMAIN_MX = [
-        MX("@", 1, "aspmx.l.google.com."),
-        MX("@", 5, "alt1.aspmx.l.google.com."),
-        MX("@", 5, "alt2.aspmx.l.google.com."),
-        MX("@", 10, "alt3.aspmx.l.google.com."),
-        MX("@", 10, "alt4.aspmx.l.google.com."),
-    ]
+function GoogleWorkspaceRecords(site_verification_code, mx_style) {
+    if (mx_style !== "legacy" && mx_style !== "google_apps") {
+        throw new Error("Invalid MX style: " + mx_style);
+    }
 
     var records = [
-        GOOGLE_APPS_DOMAIN_MX,
         // Include SPF here for now, as we don't send emails from anywhere else
         TXT("@", "v=spf1 include:_spf.google.com ~all"),
     ]
+
+    if (mx_style === "legacy") {
+        records.push([
+            MX("@", 1, "aspmx.l.google.com."),
+            MX("@", 5, "alt1.aspmx.l.google.com."),
+            MX("@", 5, "alt2.aspmx.l.google.com."),
+            MX("@", 10, "alt3.aspmx.l.google.com."),
+            MX("@", 10, "alt4.aspmx.l.google.com."),
+        ])
+    } else if (mx_style === "google_apps") {
+        records.push([
+            MX("@", 1, "smtp.google.com."),
+        ])
+    }
 
     if (site_verification_code) {
         records.push([
@@ -22,8 +31,8 @@ function GoogleWorkspaceRecords(site_verification_code) {
     return records;
 }
 
-function GoogleWorkspaceRecordsWithServices(site_verification_code) {
-    var records = GoogleWorkspaceRecords(site_verification_code);
+function GoogleWorkspaceRecordsWithServices(site_verification_code, mx_style) {
+    var records = GoogleWorkspaceRecords(site_verification_code, mx_style);
     records.push([
         CNAME("calendar", "ghs.googlehosted.com."),
         CNAME("drive", "ghs.googlehosted.com."),
