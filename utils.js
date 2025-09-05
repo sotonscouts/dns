@@ -1,11 +1,20 @@
-function GoogleWorkspaceRecords(site_verification_code, mx_style) {
+function GoogleWorkspaceRecords(site_verification_code, mx_style, receive_only) {
     if (mx_style !== "legacy" && mx_style !== "google_apps") {
         throw new Error("Invalid MX style: " + mx_style);
     }
 
+    if (receive_only === undefined) {
+        receive_only = false;
+    }
+
+    var spf_default = "v=spf1 include:_spf.google.com ~all";
+    if (receive_only) {
+        spf_default = "v=spf1 ~all";
+    }
+
     var records = [
         // Include SPF here for now, as we don't send emails from anywhere else
-        TXT("@", "v=spf1 include:_spf.google.com ~all"),
+        TXT("@", spf_default),
     ]
 
     if (mx_style === "legacy") {

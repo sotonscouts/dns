@@ -78,6 +78,14 @@ D("woodmill.org.uk", REG_NONE,
     GoogleWorkspaceRecords("rvtFceqW7Xlvkcj9lrc60v5RKQt5ZGT06VLMa73gAm4", "google_apps"),
 );
 
+D("woodmill.co.uk", REG_NONE,
+    DnsProvider(DSP_MYTHIC),
+    DefaultTTL(3600),
+
+    // Google Workspace - receive only
+    GoogleWorkspaceRecords("KKYq5rmA66K87P57Rhi0UHNQYNJScnue8AY53RXlELA", "google_apps", true),
+);
+
 D("25th-southampton.org.uk", REG_NONE,
     DnsProvider(DSP_MYTHIC),
     DefaultTTL(3600),
