@@ -70,8 +70,8 @@ D("woodmill.org.uk", REG_NONE,
     DnsProvider(DSP_MYTHIC),
     DefaultTTL(3600),
 
-    A("@", CT1_LEGACY_IP),
-    AAAA("@", CT1_IP6),
+    A("@", CT1_LEGACY_IP, TTL(300)),  // Short TTL to allow quick change on Monday
+    AAAA("@", CT1_IP6, TTL(300)),  // Short TTL to allow quick change on Monday
     CNAME("www", "ct1.southamptoncityscouts.org.uk."),
 
     // Google Workspace
@@ -81,6 +81,9 @@ D("woodmill.org.uk", REG_NONE,
 D("woodmill.co.uk", REG_NONE,
     DnsProvider(DSP_MYTHIC),
     DefaultTTL(3600),
+
+    A("@", CT1_LEGACY_IP, TTL(300)),  // Short TTL to allow quick change on Monday
+    AAAA("@", CT1_IP6, TTL(300)),  // Short TTL to allow quick change on Monday
 
     // Google Workspace - receive only
     GoogleWorkspaceRecords("KKYq5rmA66K87P57Rhi0UHNQYNJScnue8AY53RXlELA", "google_apps", true),
