@@ -77,6 +77,9 @@ D("woodmill.org.uk", REG_NONE,
     CNAME("www", "ext-cust.squarespace.com."),
     CNAME("gwxf586gsalacznmn7tf", "verify.squarespace.com."),
 
+    // Domain verification for Google Search Console
+    TXT("@", "google-site-verification=-ziMzsWx6m4pESCwnADIi0MkqC3_8Z3qf2frHDcinU4"),
+
     // Google Workspace
     GoogleWorkspaceRecords("rvtFceqW7Xlvkcj9lrc60v5RKQt5ZGT06VLMa73gAm4", "google_apps"),
 );
