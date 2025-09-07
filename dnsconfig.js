@@ -9,6 +9,8 @@ var ADDITIONAL_SUBDOMAIN_SITES = ["explorers", "network", "wilverley"];
 var CT1_LEGACY_IP = "20.26.234.44";
 var CT1_IP6 = "2603:1020:700:1::48";
 
+var SQUARESPACE_EXT_CUSTOMER_IPS = ["198.185.159.145", "198.49.23.144", "198.49.23.145", "198.185.159.144"];
+
 D("southamptoncityscouts.org.uk", REG_NONE,
     DnsProvider(DSP_MYTHIC),
     DefaultTTL(3600),
@@ -70,9 +72,10 @@ D("woodmill.org.uk", REG_NONE,
     DnsProvider(DSP_MYTHIC),
     DefaultTTL(3600),
 
-    A("@", CT1_LEGACY_IP, TTL(300)),  // Short TTL to allow quick change on Monday
-    AAAA("@", CT1_IP6, TTL(300)),  // Short TTL to allow quick change on Monday
-    CNAME("www", "ct1.southamptoncityscouts.org.uk."),
+    // Website - Squarespace
+    SQUARESPACE_EXT_CUSTOMER_IPS.map(function a(ip) { return A("@", ip, TTL(300)); }),
+    CNAME("www", "ext-cust.squarespace.com."),
+    CNAME("gwxf586gsalacznmn7tf", "verify.squarespace.com."),
 
     // Google Workspace
     GoogleWorkspaceRecords("rvtFceqW7Xlvkcj9lrc60v5RKQt5ZGT06VLMa73gAm4", "google_apps"),
