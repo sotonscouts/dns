@@ -39,6 +39,9 @@ D("southamptoncityscouts.org.uk", REG_NONE,
 
     // Volunteer Hub
     CNAME("hub", "ct1"),
+
+    // Freescout
+    CNAME("freescout", "ct1"),
     
     // Google Workspace
     GoogleWorkspaceRecordsWithServices("YvpJ0aG8tp_Y94z29UzwqCL30UXHqx2OyQmOspJ8GgY", "legacy"),
