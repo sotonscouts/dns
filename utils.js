@@ -1,21 +1,29 @@
-function GoogleWorkspaceRecords(site_verification_code, mx_style, receive_only) {
+function GoogleWorkspaceRecords(site_verification_code, mx_style, spf_style) {
     if (mx_style !== "legacy" && mx_style !== "google_apps") {
         throw new Error("Invalid MX style: " + mx_style);
     }
 
-    if (receive_only === undefined) {
-        receive_only = false;
+    if (spf_style !== "receive_only" && spf_style !== "workspace_only" && spf_style !== "workspace_and_microsoft") {
+        throw new Error("Invalid SPF style: " + mx_style);
     }
 
-    var spf_default = "v=spf1 include:_spf.google.com ~all";
-    if (receive_only) {
-        spf_default = "v=spf1 ~all";
-    }
+    var records = [];
 
-    var records = [
-        // Include SPF here for now, as we don't send emails from anywhere else
-        TXT("@", spf_default),
-    ]
+    if (spf_style === "workspace_only") {
+        records.push([
+            TXT("@", "v=spf1 include:_spf.google.com ~all"),
+        ])
+    } else if (spf_style === "receive_only") {
+        records.push([
+            TXT("@", "v=spf1 ~all"),
+        ])
+    } else if (spf_style === "workspace_and_microsoft") {
+        records.push([
+            TXT("@", "v=spf1 include:_spf.google.com include:spf.protection.outlook.com ~all"),
+        ])
+    } else {
+        throw new Error("Invalid SPF style: " + spf_style);
+    }
 
     if (mx_style === "legacy") {
         records.push([
@@ -40,8 +48,8 @@ function GoogleWorkspaceRecords(site_verification_code, mx_style, receive_only) 
     return records;
 }
 
-function GoogleWorkspaceRecordsWithServices(site_verification_code, mx_style) {
-    var records = GoogleWorkspaceRecords(site_verification_code, mx_style);
+function GoogleWorkspaceRecordsWithServices(site_verification_code, mx_style, spf_style) {
+    var records = GoogleWorkspaceRecords(site_verification_code, mx_style, spf_style);
     records.push([
         CNAME("calendar", "ghs.googlehosted.com."),
         CNAME("drive", "ghs.googlehosted.com."),
