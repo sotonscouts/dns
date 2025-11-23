@@ -57,6 +57,7 @@ D("southamptoncityscouts.org.uk", REG_NONE,
     TXT("_gh-sotonscouts-o", "3da082cda3"),  // GitHub Organisation verification
     TXT("@", "canva-site-verification=nfXxT0bv21bYmOI3h66zaw"),  // Canva.com Domain Verification
     TXT("@", "MS=ms59771085"), // Microsoft Entra
+    TXT("@", "stripe-verification=8FE8E100171E5BE0DF8EBBA2087E66BCEB17F28C75C3966A545ECBD976E96A5C"),  // Stripe Domain Verification
 );
 
 D("southamptoncityscouts.co.uk", REG_NONE,
