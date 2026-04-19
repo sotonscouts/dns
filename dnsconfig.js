@@ -40,6 +40,13 @@ D("southamptoncityscouts.org.uk", REG_NONE,
     // Volunteer Hub
     CNAME("hub", "ct1"),
 
+    // Email Octopus
+    CNAME("eo._domainkey", "eo._domainkey.feb329bd2f.berrima.eoidentity.com."),
+    CNAME("eom", "eom.feb329bd2f.berrima.eoidentity.com."),
+    CNAME("eot", "eot.feb329bd2f.berrima.eoidentity.com."),
+    CNAME("61179314", "61179314.feb329bd2f.berrima.eoidentity.com."),
+    TXT("_dmarc", "v=DMARC1; p=none;"),
+
     // Freescout
     CNAME("freescout", "ct1"),
     
