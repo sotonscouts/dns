@@ -49,6 +49,7 @@ D("southamptoncityscouts.org.uk", REG_NONE,
 
     // Freescout
     CNAME("freescout", "ct1"),
+    CNAME("freescout.staging", "ct1"),
     
     // Google Workspace
     GoogleWorkspaceRecordsWithServices("YvpJ0aG8tp_Y94z29UzwqCL30UXHqx2OyQmOspJ8GgY", "legacy", "workspace_and_microsoft"),
