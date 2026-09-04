@@ -9,6 +9,11 @@ var ADDITIONAL_SUBDOMAIN_SITES = ["explorers", "network", "wilverley"];
 var CT1_LEGACY_IP = "20.26.234.44";
 var CT1_IP6 = "2603:1020:700:1::48";
 
+var CT2_LEGACY_IP = "20.0.2.27";
+var CT2_IP6 = "2603:1020:702:1c::2b";
+
+var WDM_LEGACY_IP = "145.40.169.70";
+
 var SQUARESPACE_EXT_CUSTOMER_IPS = ["198.185.159.145", "198.49.23.144", "198.49.23.145", "198.185.159.144"];
 
 D("southamptoncityscouts.org.uk", REG_NONE,
@@ -31,6 +36,10 @@ D("southamptoncityscouts.org.uk", REG_NONE,
     A("ct1", CT1_LEGACY_IP),
     AAAA("ct1", CT1_IP6),
 
+    // CT2
+    A("ct2", CT2_LEGACY_IP),
+    AAAA("ct2", CT2_IP6),
+
     // Salute
     CNAME("salute", "kind-ground-0d00af503.6.azurestaticapps.net."),
     CNAME("prodapi.salute", "ct1"),
@@ -39,6 +48,9 @@ D("southamptoncityscouts.org.uk", REG_NONE,
 
     // Volunteer Hub
     CNAME("hub", "ct1"),
+
+    // Netbox
+    CNAME("netbox", "ct2"),
 
     // Email Octopus
     CNAME("eo._domainkey", "eo._domainkey.feb329bd2f.berrima.eoidentity.com."),
@@ -105,8 +117,8 @@ D("woodmill.co.uk", REG_NONE,
     DnsProvider(DSP_MYTHIC),
     DefaultTTL(3600),
 
-    A("@", CT1_LEGACY_IP, TTL(300)),  // Short TTL to allow quick change on Monday
-    AAAA("@", CT1_IP6, TTL(300)),  // Short TTL to allow quick change on Monday
+    A("@", CT1_LEGACY_IP, TTL(300)),
+    AAAA("@", CT1_IP6, TTL(300)),
     CNAME("www", "ct1.southamptoncityscouts.org.uk.", TTL(300)),
 
     // Google Workspace - receive only
