@@ -25,8 +25,6 @@ D("southamptoncityscouts.org.uk", REG_NONE,
     AAAA("@", CT1_IP6),
     CNAME("www", "ghs.googlehosted.com."),
 
-    CNAME("archive", "ct1.southamptoncityscouts.org.uk."),
-
     // Scout group subdomains
     SCOUT_GROUP_ORDINALS.map(function a(name) { return CNAME(name, "ghs.googlehosted.com.")}),
     // Additional websites
@@ -46,11 +44,17 @@ D("southamptoncityscouts.org.uk", REG_NONE,
     CNAME("staging.salute", "proud-dune-0453ca203.6.azurestaticapps.net."),
     CNAME("stagingapi.salute", "ct1"),
 
+    // Archive
+    CNAME("archive", "ct1"),
+
     // Volunteer Hub
     CNAME("hub", "ct1"),
 
     // Netbox
     CNAME("netbox", "ct2"),
+
+    // GIS
+    CNAME("gis", "ct2"),
 
     // Email Octopus
     CNAME("eo._domainkey", "eo._domainkey.feb329bd2f.berrima.eoidentity.com."),
@@ -61,7 +65,6 @@ D("southamptoncityscouts.org.uk", REG_NONE,
 
     // Freescout
     CNAME("freescout", "ct1"),
-    CNAME("freescout.staging", "ct1"),
     
     // Google Workspace
     GoogleWorkspaceRecordsWithServices("YvpJ0aG8tp_Y94z29UzwqCL30UXHqx2OyQmOspJ8GgY", "legacy", "workspace_and_microsoft"),
@@ -69,9 +72,15 @@ D("southamptoncityscouts.org.uk", REG_NONE,
     // Gmail DKIM
     TXT("google._domainkey", "v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAndiHMSroeG0unRaetpCq1YlBm61AK0IC07uV1XOdyt2njdqUsCV+9bjn7LjH8KmIeTxcbwlNHgIHOWIuH8MY6s/TcxNnTTjct0LTcwXU/NqFWR1CTMQI2KdBTcUdPy5svueMfMvYH7bcPsokBoAU2i69EbJlJ6f9hWwL+1PjfQbbRvq9PDXDx24AssMAqvc3Omh/NTeYpENXTW0p18FHIRCUMuM1Kdraf77pemP/6qyDxW8wArMi04A0qpxzxkoY2tA+0m0ZHx8zrb1D6DJqh6QJUCLgMslBBmNYNNo5WxtQX9Paydkwxrry0NZFL0l/WXymG08N8e/Q8Px6b7n0bwIDAQAB"),
 
-    // Microsoft DKIM
-    CNAME("selector1-azurecomm-prod-net._domainkey", "selector1-azurecomm-prod-net._domainkey.azurecomm.net."),
-    CNAME("selector2-azurecomm-prod-net._domainkey", "selector2-azurecomm-prod-net._domainkey.azurecomm.net."),
+    // Azure ACS - noreply.southamptoncityscouts.org.uk
+    TXT("noreply", "v=spf1 include:spf.protection.outlook.com -all"),
+    CNAME("selector1-azurecomm-prod-net._domainkey.noreply", "selector1-azurecomm-prod-net._domainkey.azurecomm.net."),
+    CNAME("selector2-azurecomm-prod-net._domainkey.noreply", "selector2-azurecomm-prod-net._domainkey.azurecomm.net."),
+
+    // Cinolla
+    CNAME("tb5nl35dpb4stnkfycztq4wbfexzxx4d._domainkey", "tb5nl35dpb4stnkfycztq4wbfexzxx4d.dkim.amazonses.com."),
+    CNAME("kpejwfcnqs5hh7ybe3n23wuytehk3xbr._domainkey", "kpejwfcnqs5hh7ybe3n23wuytehk3xbr.dkim.amazonses.com."),
+    CNAME("dyychy57leu6yhp4rzexb5lyyzhndakc._domainkey", "dyychy57leu6yhp4rzexb5lyyzhndakc.dkim.amazonses.com."),
 
     // Other verifications
     TXT("_gh-sotonscouts-o", "3da082cda3"),  // GitHub Organisation verification
@@ -108,6 +117,11 @@ D("woodmill.org.uk", REG_NONE,
 
     // Domain verification for Google Search Console
     TXT("@", "google-site-verification=-ziMzsWx6m4pESCwnADIi0MkqC3_8Z3qf2frHDcinU4"),
+
+    // Cinolla
+    CNAME("j6s3fag442t7upranj2yito43b2sm6n7._domainkey", "j6s3fag442t7upranj2yito43b2sm6n7.dkim.amazonses.com."),
+    CNAME("z23jhqlmtm4s5ks7okbfuggtboae4uio._domainkey", "z23jhqlmtm4s5ks7okbfuggtboae4uio.dkim.amazonses.com."),
+    CNAME("k3itixmr4zmgjytxj5ahk6svy5pwmbc6._domainkey", "k3itixmr4zmgjytxj5ahk6svy5pwmbc6.dkim.amazonses.com."),
 
     // Google Workspace
     GoogleWorkspaceRecords("rvtFceqW7Xlvkcj9lrc60v5RKQt5ZGT06VLMa73gAm4", "google_apps", "workspace_only"),
